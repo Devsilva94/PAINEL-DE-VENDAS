@@ -37,30 +37,40 @@
         #login-screen {
             position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
             background: linear-gradient(-45deg, #0F172A, #1E293B, #2563EB, #0B1120);
-            background-size: 400% 400%; animation: gradientBG 15s ease infinite;
-            display: flex; justify-content: center; align-items: center; z-index: 100000; transition: opacity 0.6s ease, visibility 0.6s;
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            display: flex; justify-content: center; align-items: center;
+            z-index: 100000; transition: opacity 0.6s ease, visibility 0.6s;
         }
         @keyframes gradientBG { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
         
-        .login-glass-card { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); padding: 70px 60px; border-radius: 24px; text-align: center; box-shadow: 0 30px 60px rgba(0,0,0,0.6); width: 90%; max-width: 600px; animation: slideUpFade 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        .login-glass-card {
+            background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1); padding: 70px 60px; border-radius: 24px;
+            text-align: center; box-shadow: 0 30px 60px rgba(0,0,0,0.6); width: 90%; max-width: 600px;
+            animation: slideUpFade 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
         @keyframes slideUpFade { from { opacity: 0; transform: translateY(60px); } to { opacity: 1; transform: translateY(0); } }
 
         .login-brand { color: #60A5FA; font-size: 28px; letter-spacing: 8px; margin-bottom: 5px; text-transform: uppercase; font-weight: 900; animation: pulseGlow 2.5s infinite alternate; }
         @keyframes pulseGlow { from { text-shadow: 0 0 10px rgba(96,165,250,0.3); } to { text-shadow: 0 0 25px rgba(96,165,250,0.8); } }
-
         .login-title { color: #FFFFFF; font-size: 52px; font-weight: 900; margin-bottom: 15px; line-height: 1.1; text-shadow: 2px 5px 15px rgba(0,0,0,0.5); }
         .login-subtitle { color: #94A3B8; font-size: 18px; margin-bottom: 45px; font-weight: 500; }
-        .login-form input { width: 100%; padding: 20px; font-size: 18px; border-radius: 12px; border: 2px solid rgba(255,255,255,0.15); background: rgba(0,0,0,0.2); color: white; margin-bottom: 25px; text-align: center; outline: none; transition: 0.3s; font-weight: 600; }
+
+        .login-form input {
+            width: 100%; padding: 20px; font-size: 18px; border-radius: 12px; border: 2px solid rgba(255,255,255,0.15); 
+            background: rgba(0,0,0,0.2); color: white; margin-bottom: 25px; text-align: center; outline: none; transition: 0.3s; font-weight: 600;
+        }
+        .login-form input::placeholder { color: rgba(255,255,255,0.4); font-weight: 400; }
         .login-form input:focus { border-color: #3B82F6; background: rgba(0,0,0,0.4); box-shadow: 0 0 20px rgba(59,130,246,0.5); }
+        
         .btn-login { width: 100%; background: linear-gradient(90deg, #2563EB, #1D4ED8); color: white; padding: 20px; font-size: 18px; font-weight: 800; border: none; border-radius: 12px; cursor: pointer; transition: all 0.3s; text-transform: uppercase; letter-spacing: 1.5px; box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4); }
         .btn-login:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(37, 99, 235, 0.7); background: linear-gradient(90deg, #3B82F6, #2563EB); }
 
         /* TELA DO SISTEMA INTERNO */
         #app-screen { display: none; flex-direction: column; height: 100vh; width: 100vw; }
-
         .topbar { background-color: var(--navy); color: #FFF; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 15px rgba(0,0,0,0.1); z-index: 10; border-bottom: 3px solid var(--border-color); }
         .topbar h1 { font-size: 24px; color: #FFF; font-weight: 800; }
-        
         .role-selector { display: flex; gap: 8px; align-items: center; }
         .role-btn { background-color: rgba(255,255,255,0.05); color: #FFF; border: 1px solid rgba(255,255,255,0.2); padding: 8px 16px; border-radius: 6px; cursor: pointer; transition: all 0.3s; font-weight: 600; font-size: 13px; }
         .role-btn:hover, .role-btn.active { background-color: #FFF; color: #0F172A; border-color: #FFF; }
@@ -87,7 +97,6 @@
         .btn-success { background-color: var(--success); color: white; }
         .btn-danger { background-color: var(--danger); color: white; }
         .btn-warning { background-color: var(--warning); color: white; }
-        .btn-small { padding: 5px 10px; font-size: 11px; }
         .w-100 { width: 100%; }
 
         table { width: 100%; border-collapse: collapse; font-size: 13px; }
@@ -97,6 +106,7 @@
         .kpi { background: var(--card-bg); padding: 18px; border-radius: 8px; border-left: 5px solid var(--konect-blue); border: 1px solid var(--border-color); border-left-width: 5px; }
         .kpi h3 { font-size: 12px; text-transform: uppercase; margin-bottom: 5px; font-weight: 700; }
         .kpi p { font-size: 26px; font-weight: 800; color: var(--title-color); }
+
         .timer-display { font-size: 45px; font-weight: 800; color: var(--title-color); text-align: center; margin: 20px 0; background: var(--bg-color); border-radius: 8px; padding: 10px; }
         
         #toast-container { position: fixed; bottom: 20px; left: 20px; z-index: 999999; }
@@ -104,50 +114,58 @@
 
         footer { text-align: center; padding: 15px; font-size: 13px; color: var(--text-color); border-top: 1px solid var(--border-color); background: var(--card-bg); z-index: 10; position: relative; font-weight: 600; }
 
+        /* Pausa / Bloqueio */
         #bloqueio-pausa { display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 9990; }
         #bloqueio-fundo { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); backdrop-filter: blur(5px); cursor: not-allowed; }
         #modal-pausa-relogio { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: var(--card-bg); padding: 40px; border-radius: 12px; text-align: center; box-shadow: 0 10px 40px rgba(0,0,0,0.5); z-index: 9991; min-width: 320px; border: 2px solid var(--warning); }
         #alerta-topo-pausa { display: none; position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background: var(--danger); color: white; padding: 18px 30px; font-weight: bold; border-radius: 8px; z-index: 10000; box-shadow: 0 4px 15px rgba(0,0,0,0.4); animation: fadeIn 0.3s; font-size: 16px; text-align: center; border: 2px solid white; }
 
-        /* CALENDÁRIO */
-        .calendar-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
-        .calendar-weekdays { display: grid; grid-template-columns: repeat(7, 1fr); text-align: center; font-weight: bold; margin-bottom: 10px; font-size: 12px; color: var(--text-color); }
-        .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; }
-        .calendar-day { background: var(--bg-color); border: 1px solid var(--border-color); padding: 10px; min-height: 80px; border-radius: 6px; cursor: pointer; transition: 0.2s; position: relative; }
-        .calendar-day:hover { border-color: var(--konect-blue); background: var(--navy-light); color: white; }
-        .calendar-day.empty { background: transparent; border: none; cursor: default; }
-        .day-number { font-weight: bold; font-size: 14px; margin-bottom: 5px; }
-        .day-badges { display: flex; flex-wrap: wrap; gap: 4px; }
-        .day-badge { display: inline-block; width: 10px; height: 10px; border-radius: 50%; }
-        .badge-venda { background: var(--success); box-shadow: 0 0 5px var(--success); }
-        .badge-recusa { background: var(--danger); }
-        .dia-selecionado { border-color: var(--konect-blue); background: var(--bot-msg-bg); color: var(--title-color); border-width: 2px; }
-
         /* BOT KONECTINHO */
         #bot-widget { position: fixed; bottom: 80px; right: 20px; z-index: 10000; display: flex; flex-direction: column; align-items: flex-end; }
         #bot-toggle-btn { background-color: var(--konect-blue); color: white; width: 65px; height: 65px; border-radius: 50%; border: 3px solid white; font-size: 28px; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.3); transition: transform 0.3s; display: flex; justify-content: center; align-items: center; }
         #bot-toggle-btn:hover { transform: scale(1.05); }
+        
         #bot-chat-window { width: 380px; height: 550px; background: var(--card-bg); border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.4); border: 1px solid var(--border-color); display: none; flex-direction: column; margin-bottom: 15px; overflow: hidden; animation: fadeIn 0.3s ease; }
         .bot-header { background: var(--konect-blue); color: white; padding: 15px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; font-size: 15px; }
+        
         .bot-search-bar { padding: 10px; background: var(--bg-color); border-bottom: 1px solid var(--border-color); }
         .bot-search-bar input { width: 100%; padding: 8px 12px; border-radius: 20px; border: 1px solid var(--border-color); outline: none; background: var(--card-bg); color: var(--title-color); font-size: 13px; }
+
         .bot-body { flex: 1; padding: 15px; overflow-y: auto; background: var(--bg-color); display: flex; flex-direction: column; gap: 12px; }
+        
         .msg { max-width: 90%; padding: 12px; border-radius: 12px; font-size: 13px; line-height: 1.4; word-wrap: break-word; }
         .msg-bot { background: var(--card-bg); color: var(--title-color); border: 1px solid var(--border-color); align-self: flex-start; border-bottom-left-radius: 2px; }
         .msg-user { background: var(--konect-blue); color: white; align-self: flex-end; border-bottom-right-radius: 2px; }
-        .bot-tip-box { background: var(--bot-msg-bg); border-left: 4px solid var(--konect-blue); padding: 8px; margin: 8px 0; border-radius: 4px; font-size: 12px; color: var(--text-color); border: 1px solid var(--bot-msg-border); }
+        
         .bot-list { list-style: none; padding: 0; margin-top: 8px; }
         .bot-list-item { display: flex; justify-content: space-between; align-items: center; background: var(--bg-color); border: 1px solid var(--border-color); padding: 8px 10px; margin-bottom: 6px; border-radius: 6px; }
         .copy-btn { background: none; border: none; cursor: pointer; font-size: 16px; padding: 4px; border-radius: 4px; transition: 0.2s; }
         .copy-btn:hover { background: var(--border-color); transform: scale(1.1); }
+        
         .bot-menu-grid { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 5px; }
-        .bot-menu-btn { background: var(--navy-light); color: white; border: none; padding: 8px 10px; border-radius: 6px; font-size: 12px; cursor: pointer; transition: 0.2s; flex-grow: 1; text-align: center; }
-        .bot-menu-btn:hover { filter: brightness(1.2); }
+        .bot-menu-btn { background: var(--navy-light); color: white; border: none; padding: 8px 10px; border-radius: 6px; font-size: 12px; cursor: pointer; transition: 0.2s; flex-grow: 1; text-align: center; font-weight: 600;}
+        .bot-menu-btn:hover { filter: brightness(1.2); transform: scale(1.02); }
         .bot-menu-btn-voltar { background: var(--danger); width: 100%; margin-top: 10px; }
+
+        .cartada-box { background: #FFFBEB; border-left: 4px solid var(--danger); padding: 12px; border-radius: 6px; font-size: 13px; margin-bottom: 8px; border: 1px solid var(--border-color); border-left-color: var(--danger); }
+        .cartada-box span.badge { display: inline-block; background: var(--danger); color: white; padding: 3px 8px; border-radius: 4px; font-size: 10px; font-weight: bold; margin-bottom: 5px; text-transform: uppercase;}
+        .cartada-box p { font-style: italic; color: var(--title-color); font-weight: 600; line-height: 1.5; margin-bottom: 8px;}
+        
+        /* Efeito de Botão "Salvador" */
+        .btn-salvador {
+            background: linear-gradient(90deg, #660099, #9900CC);
+            color: white; padding: 18px; font-size: 15px; font-weight: 900; 
+            border-radius: 8px; border: 2px solid #D8B4E2; cursor: pointer; 
+            transition: 0.3s; box-shadow: 0 4px 20px rgba(102, 0, 153, 0.6);
+            animation: pulsarSalvador 2s infinite; text-transform: uppercase;
+        }
+        .btn-salvador:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(102, 0, 153, 0.8); }
+        @keyframes pulsarSalvador { 0% { box-shadow: 0 0 0 0 rgba(102, 0, 153, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(102, 0, 153, 0); } 100% { box-shadow: 0 0 0 0 rgba(102, 0, 153, 0); } }
+        
+        .instrucao-palco { display: block; font-size: 11px; color: var(--danger); font-weight: bold; text-transform: uppercase; margin-bottom: 5px; letter-spacing: 0.5px; }
     </style>
 </head>
 <body>
-
     <div id="login-screen">
         <div class="login-glass-card">
             <h2 class="login-brand">KONECTA</h2>
@@ -162,12 +180,14 @@
 
     <div id="app-screen">
         <div id="alerta-topo-pausa">⚠️ Você está de pausa. Retorne a usar o sistema após o final da mesma. Obrigado.</div>
+        
         <div id="bloqueio-pausa">
             <div id="bloqueio-fundo" onclick="mostrarAvisoPausa()"></div>
             <div id="modal-pausa-relogio">
                 <h2 id="titulo-modal-pausa" style="color: var(--title-color); font-size: 24px; margin-bottom: 10px;">Pausa Ativa</h2>
+                <p style="color: var(--text-color); font-size: 14px;">O sistema destravará automaticamente ao final.</p>
                 <div id="relogio-pausa" style="font-size: 60px; font-weight: 900; color: var(--warning); margin: 20px 0;">00:00</div>
-                <button class="btn btn-danger" onclick="encerrarPausa()" style="width: 100%; padding: 15px; font-size: 15px;">🛑 Voltar ao Sistema</button>
+                <button class="btn btn-danger" onclick="encerrarPausa()" style="width: 100%; padding: 15px; font-size: 15px; box-shadow: 0 4px 10px rgba(239, 68, 68, 0.4);">🛑 Voltar ao Sistema (Emergência)</button>
             </div>
         </div>
 
@@ -176,11 +196,8 @@
             <div class="role-selector">
                 <button class="role-btn active" onclick="changeRole('operador')">📞 Operador</button>
                 <button class="role-btn" onclick="changeRole('historico')">📅 Meu Histórico</button>
-                <button class="role-btn" onclick="changeRole('calendario')">📆 Calendário</button>
-                <button class="role-btn" onclick="changeRole('retencao')" style="background-color: var(--warning); color: white; border-color: var(--warning);">🔄 Retenção</button>
-                <button class="role-btn" onclick="changeRole('comissoes')" style="background-color: var(--success); color: white; border-color: var(--success);">💰 Comissões</button>
+                <button class="role-btn" onclick="changeRole('comissoes')" style="background-color: var(--success); color: white; border-color: var(--success);">💰 Painel de Comissões</button>
             </div>
-            
             <div class="user-info">
                 <span style="font-size: 13px; font-weight: 600;">👤 Olá, <b id="display-user-name" style="color: #60A5FA;"></b></span>
                 <button class="btn btn-danger" style="padding: 6px 12px; font-size: 11px;" onclick="sairSistema()">Sair</button>
@@ -204,20 +221,25 @@
                             <div id="pausa-container" style="display:flex; gap:5px;">
                                 <button class="btn btn-warning" style="font-size:11px; padding:6px 12px;" onclick="iniciarPausa('Descanso 1', 10)">☕ Descanso 1</button>
                                 <button class="btn btn-warning" style="font-size:11px; padding:6px 12px;" onclick="iniciarPausa('Lanche', 20)">🍔 Lanche</button>
+                                <button class="btn btn-warning" style="font-size:11px; padding:6px 12px;" onclick="iniciarPausa('Descanso 2', 10)">☕ Descanso 2</button>
                             </div>
                         </div>
 
                         <div class="timer-display" id="timer">00:00</div>
                         <div style="display: flex; gap: 10px; margin-bottom: 20px;">
                             <button class="btn btn-success w-100" id="btn-iniciar" style="font-size: 15px; padding: 15px;" onclick="iniciarAtendimento()">▶️ Iniciar</button>
-                            <button class="btn btn-danger w-100" id="btn-finalizar" style="font-size: 15px; padding: 15px;" disabled onclick="finalizarAtendimento()">⏹️ Finalizar</button>
+                            <button class="btn btn-danger w-100" id="btn-finalizar" style="font-size: 15px; padding: 15px;" onclick="finalizarAtendimento()" disabled>⏹️ Finalizar</button>
                         </div>
+                        
+                        <button class="w-100 btn-salvador" style="margin-bottom: 15px;" onclick="abrirScriptVivo()">
+                            🚨 MODO SALVADOR: ABRIR SCRIPT DE OURO (VIVO)
+                            <span style="display:block; font-size: 11px; font-weight: normal; margin-top: 5px; color: #E9D5FF;">Tá inseguro? Não sabe o que falar? Clique aqui e leia a tela!</span>
+                        </button>
 
                         <div id="form-tabulacao" style="display: none; margin-top: 20px; border-top: 1px solid var(--border-color); padding-top: 20px;">
                             <h3 style="color: var(--title-color); margin-bottom: 15px; font-size: 14px; text-transform: uppercase;">Tabulação da Venda</h3>
                             <form onsubmit="salvarAtendimento(event)">
                                 <div class="form-group"><label>Nome do Cliente</label><input type="text" id="tab-cliente" required></div>
-                                <div class="form-group"><label>WhatsApp do Cliente (Com DDD)</label><input type="text" id="tab-whatsapp" placeholder="Ex: 71999999999" required></div>
                                 <div class="form-group"><label>Resultado da Ligação</label>
                                     <select id="tab-resultado" onchange="togglePlanoInputs()" required>
                                         <option value="" disabled selected>Selecione...</option>
@@ -225,14 +247,11 @@
                                         <option value="Recusa">❌ Cliente Recusou</option>
                                     </select>
                                 </div>
-                                
                                 <div class="grid-2" id="div-plano-detalhes" style="display: none; background: var(--bg-color); padding: 15px; border-radius: 8px; border: 1px solid var(--border-color);">
-                                    <div class="form-group" style="grid-column: span 2;"><label>Produto / Plano Vendido</label>
-                                        <select id="tab-plano" onchange="calcularPreviaOperador()"></select>
-                                    </div>
+                                    <div class="form-group" style="grid-column: span 2;"><label>Produto / Plano Vendido</label><select id="tab-plano" onchange="calcularPreviaOperador()"></select></div>
                                     <div class="form-group"><label>Quantidade</label><input type="number" id="tab-qtd" value="1" min="1" oninput="calcularPreviaOperador()"></div>
                                     <div class="form-group" style="display: flex; flex-direction: column; justify-content: center; text-align: right;">
-                                        <p style="font-size: 11px; color: var(--text-color); font-weight: bold;">Comissão (Previsão):</p>
+                                        <p style="font-size: 11px; color: var(--text-color); font-weight: bold;">COMISSÃO (PREVISÃO):</p>
                                         <p id="previa-comissao" style="font-size: 20px; font-weight: 900; color: var(--title-color);">R$ 0,00</p>
                                     </div>
                                 </div>
@@ -241,20 +260,18 @@
                         </div>
                     </div>
 
-                    <div>
-                        <div class="card">
-                            <h2>Meu Bloco de Notas 📝</h2>
-                            <textarea id="nota-texto" class="form-group" style="height: 120px; width: 100%; resize: none;" placeholder="Anotações de clientes, retornos..."></textarea>
-                            <button class="btn btn-secondary w-100" onclick="salvarNota()">Salvar Anotação</button>
-                            <div id="lista-minhas-notas" style="margin-top: 15px; max-height: 200px; overflow-y: auto;"></div>
-                        </div>
+                    <div class="card">
+                        <h2>Meu Bloco de Notas 📝</h2>
+                        <textarea id="nota-texto" class="form-group" style="height: 120px; width: 100%; resize: none;" placeholder="Anotações de clientes, retornos..."></textarea>
+                        <button class="btn btn-secondary w-100" onclick="salvarNota()">Salvar Anotação</button>
+                        <div id="lista-minhas-notas" style="margin-top: 15px; max-height: 200px; overflow-y: auto;"></div>
                     </div>
                 </div>
 
                 <div class="card navy-top">
                     <h2>Fechamento Recente (Hoje)</h2>
                     <table style="margin-top: 15px;">
-                        <thead><tr><th>Hora</th><th>Cliente</th><th>WhatsApp</th><th>Status</th><th>Produto</th><th>Comissão</th><th>Ações QA</th></tr></thead>
+                        <thead><tr><th>Hora</th><th>Cliente</th><th>Status</th><th>Produto</th><th>Qtd</th><th>Comissão</th><th>Ações</th></tr></thead>
                         <tbody id="tabela-minhas-vendas"></tbody>
                     </table>
                 </div>
@@ -269,42 +286,7 @@
                         <button class="btn btn-success" onclick="exportarExcel()">📥 Baixar Excel</button>
                     </div>
                     <div id="area-tabela-historico">
-                        <table id="tabela-historico-export">
-                            <thead><tr><th>Data / Hora</th><th>Cliente</th><th>Status</th><th>Produto</th><th>Valor Venda</th><th>Comissão</th></tr></thead>
-                            <tbody id="tbody-historico"></tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-            <div id="view-retencao" class="view-section fade-in">
-                <div class="card navy-top">
-                    <h2>Recuperação de Clientes (Reversão) 🔄</h2>
-                    <p style="font-size: 13px; margin-bottom: 15px;">Listagem de todos os clientes que recusaram a oferta. Clique em "Tentar Reversão" para abrir o WhatsApp e renegociar.</p>
-                    <table>
-                        <thead><tr><th>Data / Hora</th><th>Cliente</th><th>WhatsApp</th><th>Motivo Tabulado</th><th>Ação de Reversão</th></tr></thead>
-                        <tbody id="tbody-retencao"></tbody>
-                    </table>
-                </div>
-            </div>
-
-            <div id="view-calendario" class="view-section fade-in">
-                <div class="grid-2">
-                    <div class="card navy-top">
-                        <div class="calendar-header">
-                            <button class="btn btn-secondary" onclick="mudarMesCalendario(-1)">⬅️ Ant.</button>
-                            <h2 id="mes-ano-display" style="margin:0; border:none; padding:0;"></h2>
-                            <button class="btn btn-secondary" onclick="mudarMesCalendario(1)">Prox. ➡️</button>
-                        </div>
-                        <div class="calendar-weekdays"><div>Dom</div><div>Seg</div><div>Ter</div><div>Qua</div><div>Qui</div><div>Sex</div><div>Sáb</div></div>
-                        <div id="calendar-days" class="calendar-grid"></div>
-                    </div>
-                    
-                    <div class="card navy-top">
-                        <h2>Relatório do Dia: <span id="data-selecionada-display" style="color: var(--konect-blue);">Selecione no calendário</span></h2>
-                        <div id="lista-detalhes-dia" style="max-height: 400px; overflow-y: auto; padding-right: 10px;">
-                            <p style="color: var(--text-color);">Selecione um dia.</p>
-                        </div>
+                        <table id="tabela-historico-export"><thead><tr><th>Data / Hora</th><th>Cliente</th><th>Status</th><th>Produto</th><th>Qtd</th><th>Valor Venda</th><th>Comissão</th></tr></thead><tbody id="tbody-historico"></tbody></table>
                     </div>
                 </div>
             </div>
@@ -314,7 +296,7 @@
                     <h2>Gestão de Produtos e Comissões 💰</h2>
                     <form onsubmit="adicionarProduto(event)" style="display: flex; gap: 10px; margin-bottom: 25px; align-items: flex-end; background: var(--bg-color); padding: 15px; border-radius: 8px; border: 1px solid var(--border-color);">
                         <div class="form-group w-100" style="margin:0;"><label>Nome do Produto</label><input type="text" id="prod-nome" required></div>
-                        <div class="form-group w-100" style="margin:0;"><label>Valor Final</label><input type="number" step="0.01" id="prod-valor" required></div>
+                        <div class="form-group w-100" style="margin:0;"><label>Valor Final (Venda)</label><input type="number" step="0.01" id="prod-valor" required></div>
                         <div class="form-group w-100" style="margin:0;"><label>Sua Comissão</label><input type="number" step="0.01" id="prod-comissao" required></div>
                         <button type="submit" class="btn btn-primary">Cadastrar</button>
                     </form>
@@ -323,132 +305,111 @@
             </div>
         </div>
 
-        <footer>Copyright © 2026 | Desenvolvido por Joabson Barbosa. Todos os direitos reservados.</footer>
+        <div id="modal-script-vivo" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.85); backdrop-filter: blur(5px); z-index: 200000; justify-content: center; align-items: center;">
+            <div style="background: var(--card-bg); width: 95%; max-width: 900px; max-height: 90vh; border-radius: 15px; overflow-y: auto; padding: 35px; position: relative; border-top: 10px solid #660099; box-shadow: 0 10px 50px rgba(0,0,0,0.7);">
+                <button onclick="fecharScriptVivo()" style="position: absolute; top: 20px; right: 20px; border: none; background: var(--danger); color: white; border-radius: 5px; padding: 8px 15px; cursor: pointer; font-weight: bold; font-size: 14px; box-shadow: 0 2px 5px rgba(0,0,0,0.3);">FECHAR [X]</button>
+                
+                <div style="text-align: center; margin-bottom: 25px;">
+                    <h1 style="color: #660099; font-size: 28px; font-weight: 900; text-transform: uppercase; margin-bottom: 5px;">🚨 Modo Salvador VIVO 🚨</h1>
+                    <p style="color: var(--text-color); font-size: 15px; font-weight: 600;">Não sabe o que falar? Apenas leia o texto abaixo com confiança e naturalidade.</p>
+                </div>
+                
+                <div style="margin-bottom: 20px; padding: 18px; background: var(--bg-color); border-left: 5px solid #660099; border-radius: 8px;">
+                    <h3 style="color: #660099; font-size: 18px; margin-bottom: 10px;">🔴 1. Abordagem (Atenção Imediata)</h3>
+                    <p class="instrucao-palco">[Fale sorrindo, com voz firme e ritmo ágil]</p>
+                    <p style="font-size: 16px; font-weight: 500; background: var(--white); padding: 15px; border-radius: 6px; color: var(--title-color); border: 1px solid var(--border-color); line-height: 1.6;">
+                        "Alô, falo com [Nome do Cliente]? Olá, [Nome], aqui é o [Seu Nome], do <b>setor de liberação e infraestrutura da Vivo</b>. O motivo da minha ligação é bem rápido, mas é excelente pra você: <br><br>
+                        O sistema acabou de habilitar a substituição da fiação da sua rua por uma <b>rota de fibra 100% dedicada no seu CEP</b>. Eu preciso apenas confirmar se você vai querer aproveitar essa vaga na sua casa agora, ou se posso passar a liberação pro próximo vizinho da lista."
+                    </p>
+                </div>
+
+                <div style="margin-bottom: 20px; padding: 18px; background: var(--bg-color); border-left: 5px solid #F59E0B; border-radius: 8px;">
+                    <h3 style="color: #D97706; font-size: 18px; margin-bottom: 10px;">🔍 2. Sondagem (Encontrando a Dor)</h3>
+                    <p class="instrucao-palco">[Faça a pergunta e fique em silêncio. Deixe o cliente reclamar da internet dele]</p>
+                    <p style="font-size: 16px; font-weight: 500; background: var(--white); padding: 15px; border-radius: 6px; color: var(--title-color); border: 1px solid var(--border-color); line-height: 1.6;">
+                        "Deixa eu te perguntar uma coisa sincera: Hoje, quando você mais precisa da internet à noite ou no final de semana, <b>você sente que a sua operadora atual te entrega 100% do que você paga</b>, ou você ainda passa raiva com a tela carregando e o sinal caindo no fundo da casa?"
+                    </p>
+                </div>
+
+                <div style="margin-bottom: 20px; padding: 18px; background: var(--bg-color); border-left: 5px solid #3B82F6; border-radius: 8px;">
+                    <h3 style="color: #2563EB; font-size: 18px; margin-bottom: 10px;">🛡️ 3. A Solução (Construindo Valor)</h3>
+                    <p class="instrucao-palco">[Fale com tom de autoridade, como quem traz a salvação]</p>
+                    <p style="font-size: 16px; font-weight: 500; background: var(--white); padding: 15px; border-radius: 6px; color: var(--title-color); border: 1px solid var(--border-color); line-height: 1.6;">
+                        "É exatamente por esse histórico de lentidão que a sua rua foi mapeada para essa atualização! A Vivo está trazendo a <b>fibra pura, que vai do poste direto pra dentro do seu roteador Wi-Fi 6.</b> <br><br>
+                        Isso significa fim de sinal fraco no quarto e fim de internet travando. Além disso, a gente já deixa liberado pra você os aplicativos <i>[Citar Paramout+ ou outro benefício do plano]</i> de graça na sua conta."
+                    </p>
+                </div>
+
+                <div style="margin-bottom: 20px; padding: 18px; background: var(--bot-msg-bg); border-left: 5px solid var(--success); border-radius: 8px; border: 2px solid var(--success);">
+                    <h3 style="color: var(--success); font-size: 18px; margin-bottom: 10px;">💎 4. Oferta (O "Tapa" do Preço)</h3>
+                    <p class="instrucao-palco">[Diminua um pouco o tom de voz, como se estivesse contando um segredo/vantagem exclusiva]</p>
+                    <p style="font-size: 16px; font-weight: 500; background: var(--white); padding: 15px; border-radius: 6px; color: var(--title-color); border: 1px solid var(--border-color); line-height: 1.6;">
+                        "Se você fosse contratar essa infraestrutura toda avulsa na loja, passaria de R$ 200 fácil. Mas como a estrutura <b>já está liberada para a sua rua neste exato momento</b>, eu consigo te encaixar no lote subsidiado por <b>apenas R$ [PREÇO DO PLANO] por mês.</b> <br><br>
+                        É literalmente você pagar preço de internet de bairro, mas levando a infraestrutura da maior empresa de tecnologia do Brasil."
+                    </p>
+                </div>
+
+                <div style="margin-bottom: 10px; padding: 18px; background: #FFFBEB; border-left: 5px solid var(--danger); border-radius: 8px;">
+                    <h3 style="color: var(--danger); font-size: 18px; margin-bottom: 10px;">🎯 5. Fechamento Presuntivo (A Venda Feita)</h3>
+                    <p class="instrucao-palco">[Não pergunte "você quer?". Apenas aja como se ele já tivesse comprado. Tenha a caneta/teclado na mão]</p>
+                    <p style="font-size: 16px; font-weight: 500; background: var(--white); padding: 15px; border-radius: 6px; color: var(--title-color); border: 1px solid var(--border-color); line-height: 1.6;">
+                        "Lembrando que a instalação e o modem moderno não têm custo nenhum pra você. Para eu segurar esse valor promocional no sistema agora e já solicitar o seu técnico, eu só preciso confirmar rapidinho: <b>O melhor e-mail para o envio do seu contrato de segurança é o seu pessoal mesmo, ou você usa algum específico para contas?</b>"
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <footer>Copyright © 2026 | Desenvolvido por Joabson Barbosa.</footer>
 
         <div id="bot-widget">
             <div id="bot-chat-window">
                 <div class="bot-header">
-                    <span>🤖 KONECTINHO (Avançado)</span>
+                    <span>🤖 KONECTINHO</span>
                     <button onclick="toggleBot()" style="background:none; border:none; color:white; cursor:pointer; font-size:16px; font-weight:bold;">X</button>
                 </div>
                 <div class="bot-search-bar" id="bot-search-container" style="display:none;">
-                    <input type="text" id="bot-search" placeholder="🔍 Buscar objeção (ex: caro, esposo)..." oninput="filtrarMenuBot()">
+                    <input type="text" id="bot-search" placeholder="🔍 Buscar objeção (ex: caro, zap)..." oninput="filtrarMenuBot()">
                 </div>
                 <div class="bot-body" id="bot-messages"></div>
             </div>
             <button id="bot-toggle-btn" onclick="toggleBot()">🤖</button>
         </div>
-    </div> <div id="toast-container"></div>
+    </div>
+    <div id="toast-container"></div>
 
     <script>
+        // --- TEMA ESCURO ---
         let isDarkMode = localStorage.getItem('theme') === 'dark';
         if (isDarkMode) document.body.setAttribute('data-theme', 'dark');
+        function toggleDarkMode() { isDarkMode = !isDarkMode; if (isDarkMode) { document.body.setAttribute('data-theme', 'dark'); localStorage.setItem('theme', 'dark'); } else { document.body.removeAttribute('data-theme'); localStorage.setItem('theme', 'light'); } }
 
-        function toggleDarkMode() {
-            isDarkMode = !isDarkMode;
-            if (isDarkMode) { document.body.setAttribute('data-theme', 'dark'); localStorage.setItem('theme', 'dark'); } 
-            else { document.body.removeAttribute('data-theme'); localStorage.setItem('theme', 'light'); }
-        }
-
-        function entrarSistema(event) {
-            event.preventDefault();
-            db.meuNome = document.getElementById('login-nome').value.trim();
-            if(!db.meuNome) return; salvarDB();
-            const telaLogin = document.getElementById('login-screen');
-            telaLogin.style.opacity = '0';
-            setTimeout(() => {
-                telaLogin.style.display = 'none'; document.getElementById('app-screen').style.display = 'flex';
-                document.getElementById('display-user-name').innerText = db.meuNome;
-                showToast(`🚀 Bem-vindo(a), ${db.meuNome}!`); renderCalendarioItinerario();
-            }, 600);
-        }
-
-        function sairSistema() {
-            if(confirm("Deseja realmente sair da sua sessão?")) {
-                db.meuNome = ''; salvarDB(); document.getElementById('login-nome').value = '';
-                document.getElementById('app-screen').style.display = 'none';
-                const telaLogin = document.getElementById('login-screen');
-                telaLogin.style.display = 'flex'; setTimeout(() => { telaLogin.style.opacity = '1'; }, 10);
-            }
-        }
-
-        // SISTEMA DE PAUSA
-        let alertaTimeout, pausaInterval, tempoPausaRestante = 0;
-        const formatarTempoPausa = (s) => `${Math.floor(s/60).toString().padStart(2,'0')}:${Math.floor(s%60).toString().padStart(2,'0')}`;
-        function iniciarPausa(tipo, minutos) {
-            tempoPausaRestante = minutos * 60; document.getElementById('titulo-modal-pausa').innerText = `Pausa: ${tipo}`;
-            document.getElementById('bloqueio-pausa').style.display = 'block';
-            clearInterval(pausaInterval);
-            pausaInterval = setInterval(() => {
-                tempoPausaRestante--; document.getElementById('relogio-pausa').innerText = formatarTempoPausa(tempoPausaRestante);
-                if(tempoPausaRestante <= 0) encerrarPausa(true);
-            }, 1000);
-        }
-        function encerrarPausa(finalizada = false) { clearInterval(pausaInterval); document.getElementById('bloqueio-pausa').style.display = 'none'; document.getElementById('alerta-topo-pausa').style.display = 'none'; }
-        function mostrarAvisoPausa() { const alerta = document.getElementById('alerta-topo-pausa'); alerta.style.display = 'block'; clearTimeout(alertaTimeout); alertaTimeout = setTimeout(() => { alerta.style.display = 'none'; }, 3500); }
-
-        // BANCO DE DADOS
-        const DB_KEY = 'crm_callcenter_v11';
-        let db = JSON.parse(localStorage.getItem(DB_KEY)) || { meuNome: '', produtos: [], atendimentos: [], notas: [] };
+        // --- BANCO DE DADOS CRM ---
+        const DB_KEY = 'crm_callcenter_v12';
+        let dadosSalvos = JSON.parse(localStorage.getItem(DB_KEY)) || {};
+        let db = { meuNome: dadosSalvos.meuNome || '', produtos: dadosSalvos.produtos || [], atendimentos: dadosSalvos.atendimentos || [], notas: dadosSalvos.notas || [] };
         function salvarDB() { localStorage.setItem(DB_KEY, JSON.stringify(db)); atualizarTelas(); }
-        const formatarMoeda = (v) => new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(v || 0);
-        const formatarTempo = (s) => `${Math.floor(s/60).toString().padStart(2,'0')}:${Math.floor(s%60).toString().padStart(2,'0')}`;
-        const showToast = (msg) => { const t = document.createElement('div'); t.className = 'toast'; t.innerText = msg; document.getElementById('toast-container').appendChild(t); setTimeout(() => t.remove(), 3000); };
 
-        // ABRE WHATSAPP
-        function abrirWhatsApp(numero, texto) {
-            if(!numero) { alert("Cliente não tem WhatsApp cadastrado!"); return; }
-            const numLimpo = numero.replace(/\D/g, '');
-            window.open(`https://wa.me/55${numLimpo}?text=${encodeURIComponent(texto)}`, '_blank');
-        }
+        const formatarMoeda = (v) => new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(v || 0);
+        const formatarTempo = (s) => { if(isNaN(s)) return "00:00"; const m = Math.floor(s/60).toString().padStart(2,'0'); const seg = Math.floor(s%60).toString().padStart(2,'0'); return `${m}:${seg}`; };
+        const showToast = (msg) => { const t = document.createElement('div'); t.className = 'toast'; t.innerText = msg; document.getElementById('toast-container').appendChild(t); setTimeout(() => t.remove(), 3000); };
 
         window.onload = () => { if(db.meuNome) document.getElementById('login-nome').value = db.meuNome; atualizarTelas(); initKonectinho(); };
 
-        function changeRole(role) {
-            document.querySelectorAll('.view-section').forEach(el => el.classList.remove('active'));
-            document.querySelectorAll('.role-btn').forEach(el => el.classList.remove('active'));
-            document.getElementById(`view-${role}`).classList.add('active');
-            event.target.classList.add('active');
-            if(role === 'calendario') renderCalendarioItinerario();
-            atualizarTelas();
-        }
+        function entrarSistema(event) { event.preventDefault(); const nomeInput = document.getElementById('login-nome').value.trim(); if(!nomeInput) return; db.meuNome = nomeInput; salvarDB(); const telaLogin = document.getElementById('login-screen'); telaLogin.style.opacity = '0'; setTimeout(() => { telaLogin.style.display = 'none'; document.getElementById('app-screen').style.display = 'flex'; document.getElementById('display-user-name').innerText = db.meuNome; showToast(`🚀 Bem-vindo(a), ${db.meuNome}!`); }, 600); }
+        function sairSistema() { if(confirm("Deseja realmente sair?")) { db.meuNome = ''; salvarDB(); document.getElementById('login-nome').value = ''; document.getElementById('app-screen').style.display = 'none'; const telaLogin = document.getElementById('login-screen'); telaLogin.style.display = 'flex'; setTimeout(() => { telaLogin.style.opacity = '1'; }, 10); } }
 
-        function atualizarTelas() {
+        // --- PAUSA ---
+        let alertaTimeout; let pausaInterval; let tempoPausaRestante = 0;
+        function iniciarPausa(tipo, minutosTotais) { tempoPausaRestante = minutosTotais * 60; document.getElementById('titulo-modal-pausa').innerText = `Pausa: ${tipo}`; document.getElementById('relogio-pausa').innerText = formatarTempo(tempoPausaRestante); document.getElementById('bloqueio-pausa').style.display = 'block'; clearInterval(pausaInterval); pausaInterval = setInterval(() => { tempoPausaRestante--; document.getElementById('relogio-pausa').innerText = formatarTempo(tempoPausaRestante); if(tempoPausaRestante <= 0) encerrarPausa(true); }, 1000); showToast(`⏸️ Pausa iniciada.`); }
+        function encerrarPausa(finalizadaPeloTempo = false) { clearInterval(pausaInterval); document.getElementById('bloqueio-pausa').style.display = 'none'; document.getElementById('alerta-topo-pausa').style.display = 'none'; if(finalizadaPeloTempo) showToast("⏰ Tempo finalizado!"); else showToast("▶️ Pausa interrompida."); }
+        function mostrarAvisoPausa() { const alerta = document.getElementById('alerta-topo-pausa'); alerta.style.display = 'block'; clearTimeout(alertaTimeout); alertaTimeout = setTimeout(() => { alerta.style.display = 'none'; }, 3500); }
+
+        function changeRole(role) { document.querySelectorAll('.view-section').forEach(el => el.classList.remove('active')); document.querySelectorAll('.role-btn').forEach(el => el.classList.remove('active')); document.getElementById(`view-${role}`).classList.add('active'); event.target.classList.add('active'); atualizarTelas(); }
+
+        function atualizarTelas() { 
             let optionsPlanos = '<option value="" disabled selected>Selecione o Produto...</option>' + db.produtos.map(p => `<option value="${p.id}">${p.nome} (R$ ${p.valor})</option>`).join('');
             if(document.getElementById('tab-plano')) document.getElementById('tab-plano').innerHTML = optionsPlanos;
-            calcularKPIs(); renderTabelaOperador(); renderNotasOperador(); renderProdutos(); atualizarFiltroDatasHistorico(); renderTabelaHistorico(); renderCalendarioItinerario(); renderRetencao();
-        }
-
-        // OPERADOR
-        let timerInterval; let tempoAtual = 0;
-        function iniciarAtendimento() { tempoAtual = 0; document.getElementById('btn-iniciar').disabled = true; document.getElementById('btn-finalizar').disabled = false; document.getElementById('form-tabulacao').style.display = 'none'; timerInterval = setInterval(() => { tempoAtual++; document.getElementById('timer').innerText = formatarTempo(tempoAtual); }, 1000); }
-        function finalizarAtendimento() { clearInterval(timerInterval); document.getElementById('btn-iniciar').disabled = false; document.getElementById('btn-finalizar').disabled = true; document.getElementById('form-tabulacao').style.display = 'block'; document.getElementById('form-tabulacao').reset(); togglePlanoInputs(); }
-        function togglePlanoInputs() { const res = document.getElementById('tab-resultado').value; const divPlano = document.getElementById('div-plano-detalhes'); if(res === 'Venda') { divPlano.style.display = 'grid'; document.getElementById('tab-plano').required = true; document.getElementById('tab-qtd').required = true; document.getElementById('previa-comissao').innerText = "R$ 0,00"; } else { divPlano.style.display = 'none'; document.getElementById('tab-plano').required = false; document.getElementById('tab-qtd').required = false; } }
-        function calcularPreviaOperador() { const prodId = document.getElementById('tab-plano').value; const qtd = parseInt(document.getElementById('tab-qtd').value) || 1; const produto = db.produtos.find(p => p.id == prodId); if(produto) document.getElementById('previa-comissao').innerText = formatarMoeda(produto.comissao * qtd); }
-        
-        function salvarAtendimento(e) { 
-            e.preventDefault(); 
-            const res = document.getElementById('tab-resultado').value; 
-            const wpp = document.getElementById('tab-whatsapp').value;
-            let produto = null, qtd = 0, valorTotal = 0, comissaoTotal = 0, prodIdGravado = null; 
             
-            if(res === 'Venda') { 
-                const prodId = document.getElementById('tab-plano').value; 
-                qtd = parseInt(document.getElementById('tab-qtd').value) || 1; 
-                produto = db.produtos.find(p => p.id == prodId); 
-                valorTotal = produto.valor * qtd; comissaoTotal = produto.comissao * qtd; prodIdGravado = produto.id; 
-                showToast("🎉 Venda Salva! Envie o QA."); 
-            } else { showToast("Tabulação Salva!"); }
-            
-            db.atendimentos.push({ id: Date.now(), data: new Date().toLocaleString('pt-BR').substring(0, 16), operador: db.meuNome, cliente: document.getElementById('tab-cliente').value, whatsapp: wpp, resultado: res, produtoId: prodIdGravado, produtoNome: produto ? produto.nome : '-', qtd: qtd, valor: valorTotal, comissao: comissaoTotal }); 
-            tempoAtual = 0; document.getElementById('timer').innerText = "00:00"; document.getElementById('form-tabulacao').style.display = 'none'; salvarDB(); 
-        }
-
-        function salvarNota() { const t = document.getElementById('nota-texto').value; if(t.trim() && db.meuNome) { db.notas.push({ id: Date.now(), operador: db.meuNome, texto: t, data: new Date().toLocaleString('pt-BR').substring(0, 16) }); document.getElementById('nota-texto').value = ''; salvarDB(); } }
-        function excluirNota(id) { db.notas = db.notas.filter(n => n.id !== id); salvarDB(); }
-        function renderNotasOperador() { document.getElementById('lista-minhas-notas').innerHTML = db.notas.filter(n => n.operador === db.meuNome).slice().reverse().map(n => `<div style="background:var(--bg-color); padding:10px; border-left:3px solid var(--konect-blue); margin-bottom:10px; border-radius:4px; font-size:13px; display:flex; justify-content:space-between; border: 1px solid var(--border-color);"><div><span style="font-size:10px; color:var(--text-color); display:block;">${n.data}</span>${n.texto}</div><button class="btn btn-danger btn-small" onclick="excluirNota(${n.id})">X</button></div>`).join(''); }
-        
-        function calcularKPIs() { 
             const dataHoje = new Date().toLocaleString('pt-BR').substring(0, 10);
             const meusHoje = db.atendimentos.filter(a => a.operador === db.meuNome && a.data.startsWith(dataHoje));
             const vendasHoje = meusHoje.filter(a => a.resultado === 'Venda');
@@ -456,182 +417,251 @@
             document.getElementById('op-kpi-vendas').innerText = formatarMoeda(vendasHoje.reduce((acc, v) => acc + v.valor, 0)); 
             document.getElementById('op-kpi-comissao').innerText = formatarMoeda(vendasHoje.reduce((acc, v) => acc + v.comissao, 0)); 
             document.getElementById('op-kpi-conv').innerText = meusHoje.length ? Math.round((vendasHoje.length/meusHoje.length)*100)+'%' : '0%'; 
-        }
 
-        function renderTabelaOperador() { 
-            const dataHoje = new Date().toLocaleString('pt-BR').substring(0, 10);
-            const dadosHoje = db.atendimentos.filter(a => a.operador === db.meuNome && a.data.startsWith(dataHoje));
+            document.getElementById('tabela-minhas-vendas').innerHTML = dadosHoje = meusHoje.slice().reverse().map(a => `<tr><td>${a.data.split(' ')[1]}</td><td>${a.cliente}</td><td>${a.resultado}</td><td>${a.produtoNome}</td><td>${a.qtd||'-'}</td><td>${a.resultado==='Venda'?formatarMoeda(a.comissao):'-'}</td><td><button style="color:var(--danger); background:none; border:none; cursor:pointer;" onclick="db.atendimentos=db.atendimentos.filter(x=>x.id!==${a.id});salvarDB()">X</button></td></tr>`).join(''); 
             
-            document.getElementById('tabela-minhas-vendas').innerHTML = dadosHoje.slice().reverse().map(a => {
-                const isVenda = a.resultado === 'Venda';
-                const txtQA = `Olá, ${a.cliente}! Aqui é da área de Qualidade da Konecta. Passando para confirmar seu pedido do ${a.produtoNome}. Se estiver tudo certinho, não precisa responder. Se houver dúvidas, me avise aqui!`;
-                const btnQA = isVenda ? `<button class="btn btn-success btn-small" onclick="abrirWhatsApp('${a.whatsapp}', '${txtQA}')">📲 Enviar QA</button>` : '-';
-                
-                return `<tr><td>${a.data.split(' ')[1]}</td><td>${a.cliente}</td><td>${a.whatsapp||'-'}</td><td>${a.resultado}</td><td>${a.produtoNome}</td><td>${isVenda?formatarMoeda(a.comissao):'-'}</td><td>${btnQA} <button style="color:var(--danger); background:none; border:none; cursor:pointer;" onclick="excluirVenda(${a.id})">🗑️</button></td></tr>`;
-            }).join(''); 
+            document.getElementById('lista-minhas-notas').innerHTML = db.notas.filter(n => n.operador === db.meuNome).slice().reverse().map(n => `<div style="background:var(--bg-color); padding:10px; border-left:3px solid var(--konect-blue); margin-bottom:10px; border-radius:4px; font-size:13px; display:flex; justify-content:space-between; border: 1px solid var(--border-color);"><div><span style="font-size:10px; color:var(--text-color); display:block;">${n.data}</span>${n.texto}</div><button class="btn btn-danger btn-small" onclick="db.notas=db.notas.filter(x=>x.id!==${n.id});salvarDB()">X</button></div>`).join('');
+            
+            document.getElementById('tabela-produtos').innerHTML = db.produtos.map(p => `<tr><td>${p.nome}</td><td>${formatarMoeda(p.valor)}</td><td>${formatarMoeda(p.comissao)}</td><td><button style="color:var(--danger); background:none; border:none; cursor:pointer;" onclick="db.produtos=db.produtos.filter(x=>x.id!==${p.id});salvarDB()">X</button></td></tr>`).join(''); 
+
+            const datasUnicas = [...new Set(db.atendimentos.filter(a => a.operador === db.meuNome).map(a => a.data.split(' ')[0]))].sort().reverse();
+            const sel = document.getElementById('filtro-data-historico'); const val = sel.value;
+            sel.innerHTML = '<option value="">Todas as Datas</option>' + datasUnicas.map(d => `<option value="${d}">${d}</option>`).join('');
+            if(datasUnicas.includes(val)) sel.value = val;
+            
+            const dataSel = document.getElementById('filtro-data-historico').value;
+            let hist = db.atendimentos.filter(a => a.operador === db.meuNome); if (dataSel) hist = hist.filter(a => a.data.startsWith(dataSel));
+            document.getElementById('tbody-historico').innerHTML = hist.slice().reverse().map(a => `<tr><td>${a.data}</td><td>${a.cliente}</td><td>${a.resultado}</td><td>${a.produtoNome}</td><td>${a.qtd||'-'}</td><td>${a.resultado==='Venda'?formatarMoeda(a.valor):'-'}</td><td>${a.resultado==='Venda'?formatarMoeda(a.comissao):'-'}</td></tr>`).join('');
         }
+
+        // --- SCRIPTS E OPERADOR ---
+        function abrirScriptVivo() { document.getElementById('modal-script-vivo').style.display = 'flex'; }
+        function fecharScriptVivo() { document.getElementById('modal-script-vivo').style.display = 'none'; }
         
-        // RETENÇÃO
-        function renderRetencao() {
-            const recusas = db.atendimentos.filter(a => a.operador === db.meuNome && a.resultado === 'Recusa');
-            document.getElementById('tbody-retencao').innerHTML = recusas.slice().reverse().map(a => {
-                const txtRet = `Olá, ${a.cliente}! Tudo bem? Vi que conversou com nossa equipe hoje. Consegui uma condição especial com a gerência que acho que vai te surpreender. Podemos conversar rapidinho?`;
-                return `<tr><td>${a.data}</td><td>${a.cliente}</td><td>${a.whatsapp||'-'}</td><td>Recusa Padrão</td><td><button class="btn btn-primary btn-small" onclick="abrirWhatsApp('${a.whatsapp}', '${txtRet}')">💬 Tentar Reversão</button></td></tr>`;
-            }).join('');
-        }
-
+        let timerInterval; let tempoAtual = 0;
+        function iniciarAtendimento() { tempoAtual = 0; document.getElementById('btn-iniciar').disabled = true; document.getElementById('btn-finalizar').disabled = false; document.getElementById('form-tabulacao').style.display = 'none'; timerInterval = setInterval(() => { tempoAtual++; document.getElementById('timer').innerText = formatarTempo(tempoAtual); }, 1000); }
+        function finalizarAtendimento() { clearInterval(timerInterval); document.getElementById('btn-iniciar').disabled = false; document.getElementById('btn-finalizar').disabled = true; document.getElementById('form-tabulacao').style.display = 'block'; document.getElementById('form-tabulacao').reset(); togglePlanoInputs(); }
+        
+        function togglePlanoInputs() { const res = document.getElementById('tab-resultado').value; const divPlano = document.getElementById('div-plano-detalhes'); if(res === 'Venda') { divPlano.style.display = 'grid'; document.getElementById('tab-plano').required = true; document.getElementById('tab-qtd').required = true; document.getElementById('previa-comissao').innerText = "R$ 0,00"; } else { divPlano.style.display = 'none'; document.getElementById('tab-plano').required = false; document.getElementById('tab-qtd').required = false; } }
+        function calcularPreviaOperador() { const prodId = document.getElementById('tab-plano').value; const qtd = parseInt(document.getElementById('tab-qtd').value) || 1; const produto = db.produtos.find(p => p.id == prodId); if(produto) { document.getElementById('previa-comissao').innerText = formatarMoeda(produto.comissao * qtd); } }
+        
+        function salvarAtendimento(e) { e.preventDefault(); const res = document.getElementById('tab-resultado').value; let produto = null, qtd = 0, valorTotal = 0, comissaoTotal = 0, prodIdGravado = null; if(res === 'Venda') { const prodId = document.getElementById('tab-plano').value; qtd = parseInt(document.getElementById('tab-qtd').value) || 1; produto = db.produtos.find(p => p.id == prodId); valorTotal = produto.valor * qtd; comissaoTotal = produto.comissao * qtd; prodIdGravado = produto.id; showToast("🎉 Venda Salva no Histórico!"); } else { showToast("Tabulação Salva!"); } db.atendimentos.push({ id: Date.now(), data: new Date().toLocaleString('pt-BR').substring(0, 16), operador: db.meuNome, cliente: document.getElementById('tab-cliente').value, resultado: res, produtoId: prodIdGravado, produtoNome: produto ? produto.nome : '-', qtd: qtd, valor: valorTotal, comissao: comissaoTotal }); tempoAtual = 0; document.getElementById('timer').innerText = "00:00"; document.getElementById('form-tabulacao').style.display = 'none'; salvarDB(); }
+        function salvarNota() { const t = document.getElementById('nota-texto').value; if(t.trim() && db.meuNome) { db.notas.push({ id: Date.now(), operador: db.meuNome, texto: t, data: new Date().toLocaleString('pt-BR').substring(0, 16) }); document.getElementById('nota-texto').value = ''; salvarDB(); } }
         function adicionarProduto(e) { e.preventDefault(); db.produtos.push({ id: Date.now(), nome: document.getElementById('prod-nome').value, valor: parseFloat(document.getElementById('prod-valor').value), comissao: parseFloat(document.getElementById('prod-comissao').value) }); document.getElementById('prod-nome').value = ''; document.getElementById('prod-valor').value = ''; document.getElementById('prod-comissao').value = ''; salvarDB(); }
-        function renderProdutos() { document.getElementById('tabela-produtos').innerHTML = db.produtos.map(p => `<tr><td>${p.nome}</td><td>${formatarMoeda(p.valor)}</td><td>${formatarMoeda(p.comissao)}</td><td><button style="color:var(--danger); background:none; border:none; cursor:pointer;" onclick="db.produtos=db.produtos.filter(x=>x.id!==${p.id});salvarDB()">X</button></td></tr>`).join(''); }
-        function excluirVenda(id) { if(confirm("Apagar este registro?")) { db.atendimentos = db.atendimentos.filter(a => a.id !== id); salvarDB(); } }
-
-        function atualizarFiltroDatasHistorico() { const minhasVendas = db.atendimentos.filter(a => a.operador === db.meuNome); const datasUnicas = [...new Set(minhasVendas.map(a => a.data.split(' ')[0]))].sort().reverse(); const select = document.getElementById('filtro-data-historico'); const valorAtual = select.value; select.innerHTML = '<option value="">Todas as Datas</option>' + datasUnicas.map(d => `<option value="${d}">${d}</option>`).join(''); if(datasUnicas.includes(valorAtual)) select.value = valorAtual; }
-        function renderTabelaHistorico() { const dataSelecionada = document.getElementById('filtro-data-historico').value; let filtrado = db.atendimentos.filter(a => a.operador === db.meuNome); if (dataSelecionada) { filtrado = filtrado.filter(a => a.data.startsWith(dataSelecionada)); } document.getElementById('tbody-historico').innerHTML = filtrado.slice().reverse().map(a => `<tr><td>${a.data}</td><td>${a.cliente}</td><td>${a.resultado}</td><td>${a.produtoNome}</td><td>${a.resultado==='Venda'?formatarMoeda(a.valor):'-'}</td><td>${a.resultado==='Venda'?formatarMoeda(a.comissao):'-'}</td></tr>`).join(''); }
-
-        // CALENDÁRIO
-        let calMesAtual = new Date().getMonth(), calAnoAtual = new Date().getFullYear();
-        function renderCalendarioItinerario() {
-            if (!document.getElementById('view-calendario').classList.contains('active')) return;
-            const meses = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
-            document.getElementById('mes-ano-display').innerText = `${meses[calMesAtual]} ${calAnoAtual}`;
-            const firstDay = new Date(calAnoAtual, calMesAtual, 1).getDay(); const daysInMonth = new Date(calAnoAtual, calMesAtual + 1, 0).getDate();
-            const container = document.getElementById('calendar-days'); container.innerHTML = '';
-            const meusAtendimentos = db.atendimentos.filter(a => a.operador === db.meuNome);
-            for(let i = 0; i < firstDay; i++) container.innerHTML += `<div class="calendar-day empty"></div>`;
-            for(let day = 1; day <= daysInMonth; day++) {
-                const dataStr = `${day.toString().padStart(2, '0')}/${(calMesAtual+1).toString().padStart(2, '0')}/${calAnoAtual}`;
-                const regsNoDia = meusAtendimentos.filter(a => a.data.startsWith(dataStr));
-                const qtdVendas = regsNoDia.filter(a => a.resultado === 'Venda').length; const qtdRecusas = regsNoDia.filter(a => a.resultado === 'Recusa').length;
-                let badgesHTML = '<div class="day-badges">';
-                for(let v = 0; v < Math.min(qtdVendas, 5); v++) badgesHTML += '<span class="day-badge badge-venda"></span>';
-                for(let r = 0; r < Math.min(qtdRecusas, 5); r++) badgesHTML += '<span class="day-badge badge-recusa"></span>';
-                badgesHTML += '</div>';
-                container.innerHTML += `<div class="calendar-day" onclick="selecionarDiaCalendario(this, '${dataStr}')"><div class="day-number">${day}</div>${regsNoDia.length > 0 ? badgesHTML : ''}</div>`;
-            }
-        }
-        function mudarMesCalendario(delta) { calMesAtual += delta; if(calMesAtual > 11) { calMesAtual = 0; calAnoAtual++; } if(calMesAtual < 0) { calMesAtual = 11; calAnoAtual--; } renderCalendarioItinerario(); document.getElementById('lista-detalhes-dia').innerHTML = '<p>Selecione um dia no calendário.</p>'; document.getElementById('data-selecionada-display').innerText = 'Selecione no calendário'; }
-        function selecionarDiaCalendario(elemento, dataStr) {
-            document.querySelectorAll('.calendar-day').forEach(el => el.classList.remove('dia-selecionado')); elemento.classList.add('dia-selecionado'); document.getElementById('data-selecionada-display').innerText = dataStr;
-            const regs = db.atendimentos.filter(a => a.operador === db.meuNome && a.data.startsWith(dataStr)).reverse();
-            const container = document.getElementById('lista-detalhes-dia');
-            if(regs.length === 0) { container.innerHTML = `<div style="text-align: center; padding: 20px;">Nenhuma atividade neste dia.</div>`; return; }
-            container.innerHTML = regs.map(a => {
-                const isVenda = a.resultado === 'Venda'; const corBorda = isVenda ? 'var(--success)' : 'var(--danger)';
-                return `<div style="background: var(--card-bg); padding: 15px; border-radius: 8px; border: 1px solid var(--border-color); border-left: 5px solid ${corBorda}; margin-bottom: 12px;">
-                    <div style="display:flex; justify-content:space-between; margin-bottom:8px;"><span style="font-size:12px; font-weight:bold;">🕒 ${a.data.split(' ')[1]}</span><span style="font-size:11px; padding:3px 8px; border-radius:12px; background:${isVenda ? '#D1FAE5' : '#FEE2E2'}; color:${isVenda ? '#065F46' : '#991B1B'}; font-weight:bold;">${isVenda ? '✅ VENDA' : '❌ RECUSA'}</span></div>
-                    <div style="font-size: 16px; font-weight: 800; color: var(--title-color); margin-bottom: 8px;">👤 ${a.cliente} <span style="font-size:12px;font-weight:normal">(${a.whatsapp||'Sem zap'})</span></div>
-                    ${isVenda ? `<div style="background: var(--bg-color); padding: 10px; border-radius: 6px; font-size: 13px;"><p><b>📦 Produto:</b> ${a.produtoNome}</p><div style="display:flex; justify-content: space-between;"><span><b>Qtd:</b> ${a.qtd}</span><span><b>Total:</b> ${formatarMoeda(a.valor)}</span></div></div>` : `<div style="background: var(--bg-color); padding: 10px; border-radius: 6px; font-size: 13px;">Cliente declinou a oferta.</div>`}
-                </div>`;
-            }).join('');
-        }
+        function exportarPDF() { const element = document.getElementById('area-tabela-historico'); const dataSel = document.getElementById('filtro-data-historico').value || 'Completo'; const nomeArquivo = `Vendas_${db.meuNome}_${dataSel.replace(/\//g,'-')}.pdf`; html2pdf().set({ margin: 10, filename: nomeArquivo, image: { type: 'jpeg', quality: 0.98 }, html2canvas: { scale: 2 }, jsPDF: { unit: 'mm', format: 'a4', orientation: 'landscape' } }).from(element).save(); }
+        function exportarExcel() { const dataSel = document.getElementById('filtro-data-historico').value || 'Completo'; const tabela = document.getElementById('tabela-historico-export'); const wb = XLSX.utils.table_to_book(tabela, { sheet: "Histórico" }); XLSX.writeFile(wb, `Vendas_${db.meuNome}_${dataSel.replace(/\//g,'-')}.xlsx`); }
 
         // ==========================================
-        // CÉREBRO DO KONECTINHO (Avançado + Contrapropostas)
+        // CÉREBRO DO KONECTINHO
         // ==========================================
         const konectinhoDB = {
             "preco": { 
-                titulo: "💸 1. Preço Alto", palavras: ["caro", "dinheiro", "valor"], dica: "Foque em valor.",
-                respostas: [ "Entendo você, mas o foco aqui é o quanto você economiza no mês.", "Se eu conseguir ajustar isso pra caber no seu bolso, faria sentido?", "Qual o valor ideal que você imaginava investir?", "Muitos dizem isso, mas percebem que o custo de ficar sem é maior.", "Deixa eu te mostrar como esse valor se paga no 1º mês.", "Tirando a questão do valor, o plano te atende perfeitamente?" ],
-                reacoes: [ { cenario: "Ainda achou caro", resposta: "Sei como é. Para não te deixar na mão, vou falar com meu supervisor. Se ele liberar isenção de alguma taxa ou brinde extra, fechamos agora?" }, { cenario: "Está comparando com o concorrente", resposta: "O concorrente pode parecer mais barato, mas olhe as letras miúdas. O nosso garante estabilidade sem taxa surpresa." }, { cenario: "Não viu valor", resposta: "Me diz uma coisa, qual a sua maior dificuldade atual? Porque é exatamente isso que esse plano resolve, o barato sai caro." } ]
+                titulo: "💰 1. Preço Alto", palavras: ["caro", "dinheiro", "valor", "preco", "alto"], 
+                respostas: [
+                    "Eu entendo quando você fala de preço, é uma preocupação legítima. Mas deixa eu te perguntar: hoje o que pesa mais pra você — o valor em si ou continuar com esse problema sem resolver?",
+                    "Faz sentido você analisar o valor. Só que normalmente o ‘caro’ vem quando a pessoa ainda não enxergou todo o benefício. Me diz, se isso realmente resolver o que você precisa, esse valor ainda seria um problema?",
+                    "Se a gente dividir isso pelo tempo que você vai usar ou pelo benefício que vai gerar, o valor fica bem menor do que parece agora. Você já chegou a pensar por esse lado?"
+                ],
+                contra_respostas: [
+                    "Entendo, [Nome]. Mas pense comigo: se você não mudar hoje, vai continuar pagando por algo que te dá dor de cabeça. O que é mais caro: investir um pouco mais agora e ter paz, ou continuar pagando pra passar raiva todo mês?",
+                    "Eu entendo seu lado. A minha intenção aqui não é empurrar serviço, é te entregar economia a longo prazo. Se eu te provar por A+B que no final do ano você economiza fechando isso agora, você me dá um voto de confiança?"
+                ]
             },
             "sem_dinheiro": { 
-                titulo: "📉 2. Sem Dinheiro", palavras: ["liso", "quebrado", "zerado", "salario"], dica: "Crie opções.",
-                respostas: [ "Entendo, por isso temos opções mais acessíveis.", "Se parcelar facilitar, faria sentido pra você?", "O pagamento seria só para o próximo mês. Isso ajuda?", "Não precisa pagar nada hoje, a primeira fatura é só daqui a 30 dias.", "Podemos tentar aprovar no boleto para não prender seu cartão.", "Muitos começam com o plano básico e depois aumentam." ],
-                reacoes: [ { cenario: "Sem limite no cartão", resposta: "Fique tranquilo, podemos tentar aprovar via boleto bancário sem comprometer seu limite." }, { cenario: "Só recebe mês que vem", resposta: "Perfeito! A nossa primeira cobrança pode ser agendada exatamente para o dia do seu pagamento." }, { cenario: "Totalmente sem condições", resposta: "Entendo o momento. Quer que eu deixe seu contato agendado para o mês que vem e te garanto essa mesma promoção?" } ]
+                titulo: "💸 2. Sem Dinheiro", palavras: ["liso", "quebrado", "zerado", "salario"], 
+                respostas: [
+                    "Eu respeito muito isso, de verdade. Mas deixa eu entender melhor: é falta de recurso agora ou você sente que não vale esse investimento neste momento?",
+                    "Perfeito. Só que muitas vezes a gente não tem dinheiro justamente porque algumas coisas ainda não foram resolvidas. Se isso te ajudar a melhorar sua situação, faz sentido continuar deixando pra depois?",
+                    "Eu prefiro ser transparente: esperar ‘sobrar dinheiro’ quase nunca funciona. Normalmente a pessoa decide quando entende que precisa resolver."
+                ],
+                contra_respostas: [
+                    "Justamente por isso, [Nome]! A ideia aqui não é te dar mais uma conta, é trocar um gasto ruim por um investimento que funciona. Se a gente ajustar o vencimento pro seu melhor dia, você topa dar essa chance pra resolver isso de vez?",
+                    "Compreendo totalmente. O que a maioria dos nossos clientes faz nessa situação é jogar o primeiro vencimento para o mês que vem. Assim você já usa o serviço superior agora e só se preocupa com isso depois do salário. Fechado?"
+                ]
             },
             "tempo": { 
-                titulo: "⏳ 3. Sem Tempo", palavras: ["ocupado", "pressa", "rapido"], dica: "Seja cirúrgico.",
-                respostas: [ "Fica tranquilo, levo menos de 1 minuto.", "Qual melhor horário pra eu te chamar?", "Posso te mandar só os tópicos no WhatsApp e você lê quando puder?", "Vou ser bem direto com você então, para não tomar seu tempo.", "Se me der 2 minutinhos agora, já deixo tudo resolvido pra você não se preocupar mais.", "Você prefere que eu te ligue no horário de almoço ou fim do dia?" ],
-                reacoes: [ { cenario: "Desligou na cara", resposta: "(Mande no WhatsApp) Olá! A ligação caiu, mas como vi que estava na correria, deixei a proposta separada aqui. Quando puder falar, me avise!" }, { cenario: "Pediu pra ligar depois", resposta: "Combinado! Já coloquei aqui no meu alarme. Te ligo às [X horas] em ponto." }, { cenario: "Pediu pra resumir rápido", resposta: "Resumindo: Você vai levar [Produto] por apenas [Valor]. Só preciso do seu CPF para validar o desconto." } ]
+                titulo: "⏳ 3. Sem Tempo", palavras: ["ocupado", "pressa", "rapido", "tempo"], 
+                respostas: [
+                    "Eu entendo, a rotina hoje tá puxada pra todo mundo. Mas deixa eu te perguntar: quanto tempo você já perdeu lidando com esse problema até agora?",
+                    "Isso aqui não vai tomar seu tempo — vai te devolver tempo. E esse é justamente o objetivo.",
+                    "Eu posso ser bem direto e objetivo contigo, sem enrolação nenhuma. Assim você resolve rápido e segue seu dia."
+                ],
+                contra_respostas: [
+                    "Por saber que seu tempo é corrido que eu já trouxe a solução pronta. Em 2 minutos a gente resolve aqui, eu cuido de toda a burocracia, e você não perde mais tempo ligando pra operadora pra reclamar. Qual seu email mesmo?",
+                    "Prometo que não vou segurar você. Só uma última coisa para eu liberar a vaga: posso só deixar agendado pra você avaliar o técnico sem compromisso? Se não gostar, a gente cancela na hora."
+                ]
             },
             "concorrente": { 
-                titulo: "🏦 4. Já Tenho / Concorrente", palavras: ["ja tenho", "uso outro"], dica: "Descubra a brecha.",
-                respostas: [ "Perfeito, então você já sabe como funciona. Mas hoje você tá 100% satisfeito?", "Eles são bons, mas já viu a nova tecnologia que estamos oferecendo?", "Que legal. E o que você mais gosta no serviço deles?", "Se eu te mostrar que posso entregar o mesmo serviço por um valor menor, me dá 2 minutos?", "Muitos clientes vieram de lá por causa do nosso suporte diferenciado.", "Entendo. Mas você tem fidelidade lá ou está livre para testar algo melhor?" ],
-                reacoes: [ { cenario: "Tem fidelidade lá", resposta: "Entendi! Me diz quando vence sua fidelidade, assim te procuro perto da data e te ajudo a trocar sem pagar multa." }, { cenario: "Está 100% satisfeito", resposta: "Que ótimo! Só por curiosidade, se pudesse melhorar algo hoje lá, o que seria?" }, { cenario: "Paga mais barato", resposta: "O valor deles é menor, mas nossa entrega é garantida. Já passou raiva com o suporte deles? Aqui você não passa." } ]
+                titulo: "🔄 4. Já Tenho / Concorrente", palavras: ["ja tenho", "uso outro", "concorrente"], 
+                respostas: [
+                    "Perfeito, isso já mostra que você entende a importância. Mas me diz com sinceridade: está 100% satisfeito com o que você usa hoje?",
+                    "Muitos clientes nossos já usavam outra solução. Eles não vieram porque era ruim — vieram porque viram algo melhor.",
+                    "Se você pudesse manter o mesmo custo e ter mais benefício, faria sentido pra você?"
+                ],
+                contra_respostas: [
+                    "A sua operadora atual é boa, não vou mentir. Mas a nossa tecnologia atualizou e eles ficaram pra trás na sua região. A minha proposta é: testa a nossa. Se a entrega não for infinitamente melhor, você tem total liberdade. Vamos fazer esse teste?",
+                    "Entendo a questão da fidelidade da sua atual. A maioria dos nossos clientes de hoje também tinha esse receio. O que a gente faz é garantir que os benefícios da nossa rede cubram essa 'dor de cabeça'. Posso te provar isso na prática?"
+                ]
             },
             "pensar": { 
-                titulo: "🤔 5. Vou Pensar", palavras: ["pensar", "analisar"], dica: "Dúvida real.",
-                respostas: [ "Claro. O que exatamente você precisa analisar mais?", "Geralmente quando o cliente diz que vai pensar, é por preço ou confiança. Qual dos dois é?", "Se quiser, podemos analisar juntos agora. Qual a maior dúvida?", "Posso segurar essa promoção pra você até amanhã, o que acha?", "Ficou faltando eu te explicar alguma coisa que te deixou em dúvida?", "Entendo. De zero a dez, o quanto essa proposta fez sentido pra você?" ],
-                reacoes: [ { cenario: "Está inseguro", resposta: "Eu entendo sua insegurança. Que tal fecharmos o plano mais básico só para você testar nosso serviço sem grandes compromissos?" }, { cenario: "Quer comparar preços", resposta: "Fique à vontade. Mas lembre-se: essa condição que te passei agora é exclusiva da minha gerência hoje." }, { cenario: "Apenas enrolando", resposta: "Sei que a rotina é corrida. Se o problema for só decidir, me dê um voto de confiança, eu garanto a sua satisfação!" } ]
+                titulo: "🤔 5. Vou Pensar", palavras: ["pensar", "analisar", "duvida"], 
+                respostas: [
+                    "Perfeito, pensar é importante mesmo. Mas me ajuda a entender: o que exatamente você ainda precisa avaliar?",
+                    "Normalmente quando alguém fala que vai pensar, existe alguma dúvida por trás. Qual seria a sua?",
+                    "Pensar é válido, só cuidado pra não perder tempo com algo que já faz sentido."
+                ],
+                contra_respostas: [
+                    "Quem pensa muito, geralmente perde a oportunidade, [Nome]. O lote promocional pra sua rua fecha hoje. Pensar não vai melhorar sua conexão, mas a minha fibra vai. Deixa eu garantir isso pra você, qual o melhor dia pro técnico ir aí?",
+                    "Sendo bem sincero: se a proposta não fosse boa, você já teria dito 'não'. Como você quer pensar, é porque viu vantagem. Vamos fazer assim, aprova a liberação agora, e você 'pensa' com a internet rodando liso na sua casa. Se arrepender, o cancelamento é grátis."
+                ]
             },
             "confianca": { 
-                titulo: "🛡️ 6. Não Confio", palavras: ["conheço", "seguro", "golpe"], dica: "Use autoridade.",
-                respostas: [ "Compreendo sua cautela. Estamos no mercado há anos.", "Você pode conferir nosso CNPJ e avaliações agora mesmo.", "Temos milhares de clientes na sua região, inclusive posso te mandar referências.", "Seu pagamento é processado por uma plataforma 100% segura, não fico com seus dados.", "Posso te mandar o link oficial do nosso site para você validar nossa equipe.", "Entendo, a internet tem de tudo. Mas todo o processo tem garantia de cancelamento em 7 dias." ],
-                reacoes: [ { cenario: "Acha que é fraude", resposta: "Faça o seguinte: entre no nosso site oficial e veja nossos certificados de segurança. Só finalizamos depois que você estiver confortável." }, { cenario: "Quer uma loja física", resposta: "Infelizmente nesta cidade não temos ponto físico, mas nosso suporte online é 24h. Você fala com humanos, não robôs." }, { cenario: "Viu no ReclameAqui", resposta: "É verdade, tivemos problemas pontuais no passado, mas se olhar as respostas, todos foram resolvidos. Nossa gestão mudou totalmente." } ]
+                titulo: "🚫 6. Não Confio", palavras: ["conheço", "seguro", "golpe", "confio"], 
+                respostas: [
+                    "Eu acho ótimo você falar isso, porque mostra que você se protege. Hoje realmente tem muita coisa ruim no mercado.",
+                    "Confiança não se pede, se constrói. Me diz: o que você precisa ver pra se sentir mais seguro?",
+                    "Você não precisa confiar em mim agora. Só precisa me dar alguns minutos pra te mostrar se faz sentido."
+                ],
+                contra_respostas: [
+                    "Eu entendo o trauma. E é exatamente por ter muito serviço ruim por aí que a nossa empresa garante a entrega 100% no contrato. Você não tá fechando com um curioso, tá fechando com a líder de mercado. Me dá um voto de confiança que eu te provo na prática.",
+                    "Faça o seguinte: não confie em mim, confie no contrato oficial que vai chegar no seu e-mail antes de você pagar um centavo sequer. Se tiver 1 vírgula diferente do que eu falei, você não aceita. Justo assim?"
+                ]
             },
             "experiencia": { 
-                titulo: "❌ 7. Experiência Ruim", palavras: ["problema", "não funcionou"], dica: "Mostre empatia.",
-                respostas: [ "Sinto muito por isso. Posso te explicar por que nosso processo atual é diferente?", "Me conte o que deu errado para eu te garantir que aqui não acontecerá.", "Essa não é a experiência que queremos. Se me der a chance, vou acompanhar seu caso pessoalmente.", "Mudamos todo o nosso sistema justamente por causa de feedbacks como o seu.", "Eu garanto que, comprando comigo, você terá meu contato direto para qualquer problema.", "Entendo a frustração. O que você acha de testar sem compromisso de fidelidade?" ],
-                reacoes: [ { cenario: "Problema com cobrança antes", resposta: "Realmente isso é chato. Agora nosso sistema de faturamento é auditado. E eu mesmo confiro antes de gerar a fatura." }, { cenario: "Produto era ruim", resposta: "O produto que você usou era a versão antiga. A atualização que lançamos resolveu exatamente essa falha." }, { cenario: "Suporte ignorou", resposta: "Comigo é diferente. Vou te passar meu WhatsApp corporativo. Qualquer problema, você fala direto comigo." } ]
+                titulo: "❌ 7. Experiência Ruim", palavras: ["problema", "ruim", "cancelou"], 
+                respostas: [
+                    "Eu sinto muito por isso, de verdade. Uma experiência ruim realmente desanima.",
+                    "Mas deixa eu te perguntar: foi a solução que não funcionou ou a empresa que não entregou?",
+                    "Você estaria aberto a tentar de novo, mas de um jeito diferente?"
+                ],
+                contra_respostas: [
+                    "O seu receio é totalmente válido, mas a infraestrutura que te atendeu mal no passado foi substituída. Hoje é 100% fibra nova na sua rua. Não deixe uma experiência velha te privar de uma internet premium hoje.",
+                    "É exatamente por isso que eu estou te ligando. A gente sabe do histórico ruim da região, por isso a diretoria liberou essa rede nova VIP. Eu coloco meu crachá em jogo que dessa vez vai ser diferente. Vamos agendar?"
+                ]
             },
             "falar_alguem": { 
-                titulo: "👨‍👩‍👧 8. Falar com Alguém", palavras: ["esposa", "marido", "socio"], dica: "Ofereça ajuda.",
-                respostas: [ "Quer que eu te passe tudo por escrito pra mostrar pra pessoa?", "Quando vocês podem ver isso juntos para eu retornar a ligação?", "Eu posso explicar para ele(a) também, se preferir. Podemos fazer uma chamada de vídeo?", "Geralmente a outra pessoa aprova se couber no orçamento. Você acha que o valor ficou bom?", "Podemos deixar pré-aprovado, e se ele(a) não concordar, cancelamos sem custo.", "Entendo! O que você acha que ele(a) vai perguntar sobre o plano?" ],
-                reacoes: [ { cenario: "Pessoa decide o dinheiro", resposta: "Entendi. Vou te mandar um resumo bem profissional no WhatsApp. Mostre a ele(a) a parte da economia que teremos!" }, { cenario: "Pessoa que vai usar o produto", resposta: "Maravilha, então o produto precisa agradar ela. Que tal colocarmos ela na linha rapidinho?" }, { cenario: "Sócio é chato", resposta: "Sei como é. Sócio gosta de números. Vou te enviar a planilha de retorno sobre investimento para apresentar a ele." } ]
+                titulo: "👥 8. Falar com Alguém", palavras: ["esposa", "marido", "socio"], 
+                respostas: [
+                    "Perfeito, decisão importante mesmo tem que alinhar.",
+                    "Essa pessoa costuma olhar mais preço ou resultado?",
+                    "Quer que eu já antecipe as principais dúvidas que ela pode ter?"
+                ],
+                contra_respostas: [
+                    "Eu entendo que precisa falar com sua esposa/marido. Mas olha só, a economia e a melhoria vão ser pra casa toda. Leva a solução pra ela, não o problema. Posso deixar pré-agendado, você conta a novidade e qualquer coisa você me chama. Fechado?",
+                    "Compreendo 100% que precisam decidir juntos. Mas as vagas promocionais da sua rua acabam nesta hora. Eu aprovo o seu cadastro para segurar o preço, você fala com ela, e se por um milagre ela não quiser a economia, eu cancelo sem dor de cabeça."
+                ]
             },
             "whatsapp": { 
-                titulo: "📱 9. Manda no Zap", palavras: ["manda", "zap"], dica: "Mande, mas mantenha vivo.",
-                respostas: [ "Vou mandar agora! Qual dessas opções te chamou mais atenção?", "Vou enviar. Posso te ligar amanhã às 10h para tirarmos as dúvidas?", "Claro. Me confirma o DDD e o número por favor.", "Mando sim. Mas me diz rápido, o que você prioriza: preço ou qualidade?", "Enviado! Dá uma olhadinha e me responde se chegou o PDF.", "Para eu te mandar o material certo, você prefere o plano Básico ou o Premium?" ],
-                reacoes: [ { cenario: "Visualizou e não respondeu", resposta: "Oi! Vi que conseguiu olhar a mensagem. Ficou alguma dúvida sobre o plano ou o valor?" }, { cenario: "Pediu áudio", resposta: "(Mande Áudio) Olá! Conforme conversamos, o plano inclui X e Y por apenas Z reais. Me dá um ok se pudermos prosseguir!" }, { cenario: "Bloqueou / Sumiu", resposta: "(Não insista no dia. Tente SMS no dia seguinte): Oi! Fiquei de te ajudar com o plano ontem. Ainda tem interesse?" } ]
+                titulo: "📲 9. Manda no Zap", palavras: ["manda", "zap", "whatsapp"], 
+                respostas: [
+                    "Mando sim, sem problema. Só me fala: o que mais te chamou atenção até agora?",
+                    "Quero te mandar algo que você realmente leia, não só mais uma mensagem.",
+                    "Te envio e depois te chamo pra ver o que achou, pode ser?"
+                ],
+                contra_respostas: [
+                    "Eu te mando no Zap sim! Mas pra eu não te mandar mensagem genérica que vai se perder, me confirma só uma coisa rapidinho antes de eu desligar: o que mais te incomoda hoje pra eu focar exatamente nisso na proposta?",
+                    "Eu mando agora mesmo. Mas como essa promoção sistêmica expira se eu fechar a tela, eu já vou preencher seus dados de liberação. Qual o seu CPF só pra eu anexar a proposta com o desconto garantido no WhatsApp?"
+                ]
             }
         };
 
         let chatOpen = false;
-        function toggleBot() { chatOpen = !chatOpen; document.getElementById('bot-chat-window').style.display = chatOpen ? 'flex' : 'none'; if(chatOpen) { document.getElementById('bot-search-container').style.display = 'block'; if(document.getElementById('bot-messages').innerHTML.trim() === '') initKonectinho(); } }
-        function appendBotMessageHTML(htmlContent, isUser = false) { const container = document.getElementById('bot-messages'); const msgDiv = document.createElement('div'); msgDiv.className = `msg ${isUser ? 'msg-user' : 'msg-bot'}`; msgDiv.innerHTML = htmlContent; container.appendChild(msgDiv); container.scrollTop = container.scrollHeight; }
+        
+        function toggleBot() {
+            chatOpen = !chatOpen;
+            document.getElementById('bot-chat-window').style.display = chatOpen ? 'flex' : 'none';
+            if(chatOpen) {
+                document.getElementById('bot-search-container').style.display = 'block';
+                if(document.getElementById('bot-messages').innerHTML.trim() === '') { initKonectinho(); }
+            }
+        }
+
+        function appendBotMessageHTML(htmlContent, isUser = false) {
+            const container = document.getElementById('bot-messages');
+            const msgDiv = document.createElement('div');
+            msgDiv.className = `msg ${isUser ? 'msg-user' : 'msg-bot'}`;
+            msgDiv.innerHTML = htmlContent;
+            container.appendChild(msgDiv);
+            container.scrollTop = container.scrollHeight;
+        }
+
         function copiarTextoBot(texto) { navigator.clipboard.writeText(texto).then(() => { showToast("📋 Frase copiada!"); }); }
 
-        function initKonectinho() { document.getElementById('bot-messages').innerHTML = ''; document.getElementById('bot-search').value = ''; appendBotMessageHTML("Olá! Sou o <b>KONECTINHO</b> 🤖, seu parceiro de fechamentos!<br>Pesquise acima ou escolha uma opção:"); mostrarMenuPrincipal(); }
+        function initKonectinho() {
+            document.getElementById('bot-messages').innerHTML = '';
+            document.getElementById('bot-search').value = ''; 
+            appendBotMessageHTML("Olá! Sou o <b>KONECTINHO</b> 🤖, seu parceiro de fechamentos!<br>Pesquise acima ou escolha uma opção:");
+            mostrarMenuPrincipal();
+        }
 
         function mostrarMenuPrincipal() {
             let menuHTML = `<div class="bot-menu-grid" id="menu-categorias-bot">`;
             for (let chave in konectinhoDB) { menuHTML += `<button class="bot-menu-btn" onclick="carregarObjecao('${chave}')">${konectinhoDB[chave].titulo}</button>`; }
-            menuHTML += `</div>`; appendBotMessageHTML(menuHTML, false);
+            menuHTML += `</div>`;
+            appendBotMessageHTML(menuHTML, false);
         }
 
         function filtrarMenuBot() {
             const termo = document.getElementById('bot-search').value.toLowerCase();
-            const container = document.getElementById('menu-categorias-bot'); if(!container) return; 
-            let html = '', achouAlgo = false;
+            const container = document.getElementById('menu-categorias-bot');
+            if(!container) return; 
+            
+            let html = ``; let achouAlgo = false;
             for (let chave in konectinhoDB) {
                 const d = konectinhoDB[chave];
-                if(d.titulo.toLowerCase().includes(termo) || d.palavras.join(" ").includes(termo)) { html += `<button class="bot-menu-btn" onclick="carregarObjecao('${chave}')">${d.titulo}</button>`; achouAlgo = true; }
+                if(d.titulo.toLowerCase().includes(termo) || (d.palavras && d.palavras.join(" ").includes(termo))) {
+                    html += `<button class="bot-menu-btn" onclick="carregarObjecao('${chave}')">${d.titulo}</button>`;
+                    achouAlgo = true;
+                }
             }
-            if(!achouAlgo && termo !== "") html += `<div style="font-size:12px; color:var(--danger); width:100%; text-align:center;">Nada encontrado.</div>`;
+            if(!achouAlgo && termo !== "") { html += `<div style="font-size:12px; color:var(--danger); width:100%; text-align:center; padding:10px;">Nenhuma objeção encontrada.</div>`; }
             container.innerHTML = html;
         }
 
         function carregarObjecao(chave) {
-            const dados = konectinhoDB[chave]; document.getElementById('bot-search-container').style.display = 'none'; 
+            const dados = konectinhoDB[chave];
+            document.getElementById('bot-search-container').style.display = 'none'; 
             appendBotMessageHTML(`Ajuda com: ${dados.titulo}`, true);
+
             setTimeout(() => {
-                let respHTML = `<div style="font-weight:bold; border-bottom: 1px solid var(--border-color); padding-bottom:5px; margin-bottom:5px;">🎯 ${dados.titulo}</div><div class="bot-tip-box"><span>💡 Dica:</span> ${dados.dica}</div><ul class="bot-list">`;
-                dados.respostas.forEach(r => { respHTML += `<li class="bot-list-item"><span style="flex:1;">${r}</span><button class="copy-btn" onclick="copiarTextoBot('${r.replace(/'/g, "\\'")}')">📋</button></li>`; });
-                respHTML += `</ul>
-                <button class="bot-menu-btn" style="background:var(--warning); color:black; font-weight:bold; width:100%; margin-top:10px;" onclick="mostrarContrapropostaBot('${chave}')">❌ Cliente Recusou? (Contraproposta)</button>
-                <button class="bot-menu-btn bot-menu-btn-voltar" onclick="document.getElementById('bot-search-container').style.display='block'; initKonectinho()">🔄 Voltar ao Início</button>`;
+                let respHTML = `<div style="font-weight:bold; font-size: 14px; border-bottom: 1px solid var(--border-color); padding-bottom:5px; margin-bottom:5px;">🎯 ${dados.titulo}</div><ul class="bot-list">`;
+                dados.respostas.forEach(r => { respHTML += `<li class="bot-list-item"><span style="flex:1;">"${r}"</span><button class="copy-btn" onclick="copiarTextoBot('${r.replace(/'/g, "\\'")}')" title="Copiar Frase">📋</button></li>`; });
+                respHTML += `</ul>`;
+                
+                respHTML += `<div style="margin-top: 15px; border-top: 2px dashed var(--danger); padding-top: 10px;">
+                                <button class="bot-menu-btn" style="background:var(--danger); width:100%; font-weight:bold; font-size: 13px;" onclick="mostrarContraRespostas('${chave}')">❌ O Cliente Recusou Novamente?</button>
+                                <button class="bot-menu-btn bot-menu-btn-voltar" onclick="document.getElementById('bot-search-container').style.display='block'; initKonectinho()">🔄 Voltar ao Menu</button>
+                             </div>`;
+                             
                 appendBotMessageHTML(respHTML, false);
             }, 400);
         }
 
-        function mostrarContrapropostaBot(chave) {
-            const dados = konectinhoDB[chave];
-            appendBotMessageHTML(`O cliente recusou.`, true);
+        function mostrarContraRespostas(chave) {
+            appendBotMessageHTML("❌ Ele recusou novamente", true);
+            appendBotMessageHTML("⏳ Puxando cartada final...", false);
+            
             setTimeout(() => {
-                let html = `<div style="font-weight:bold; margin-bottom:10px;">Como ele reagiu agora?</div><div class="bot-menu-grid">`;
-                dados.reacoes.forEach((r, idx) => { html += `<button class="bot-menu-btn" style="background:var(--navy);" onclick="darRespostaContraproposta('${chave}', ${idx})">${r.cenario}</button>`; });
-                html += `</div><button class="bot-menu-btn bot-menu-btn-voltar" onclick="carregarObjecao('${chave}')">🔄 Voltar para Respostas Iniciais</button>`;
-                appendBotMessageHTML(html, false);
-            }, 400);
-        }
+                const container = document.getElementById('bot-messages');
+                container.removeChild(container.lastChild);
 
-        function darRespostaContraproposta(chave, index) {
-            const r = konectinhoDB[chave].reacoes[index];
-            appendBotMessageHTML(r.cenario, true);
-            setTimeout(() => {
-                let html = `<div style="background:#FFFBEB; border-left:4px solid var(--warning); padding:10px; font-size:13px; color:#92400E;"><b>💡 Sugestão Final:</b><br><br>${r.resposta}</div>
-                <button class="bot-menu-btn" style="background:var(--warning); color:black; font-weight:bold; width:100%; margin-top:8px;" onclick="copiarTextoBot('${r.resposta.replace(/'/g, "\\'")}')">📋 Copiar Resposta</button>`;
-                appendBotMessageHTML(html, false);
-            }, 400);
+                const dados = konectinhoDB[chave];
+                let htmlFinal = ``;
+                
+                dados.contra_respostas.forEach((resposta, index) => {
+                    htmlFinal += `
+                        <div class="cartada-box">
+                            <span class="badge">🔥 Opção ${index + 1} (Agressiva)</span>
+                            <p>"${resposta}"</p>
+                            <button class="bot-menu-btn" style="background:var(--konect-blue); width:100%; font-weight:bold;" onclick="copiarTextoBot('${resposta.replace(/'/g, "\\'")}')">📋 Copiar para o Fechamento</button>
+                        </div>
+                    `;
+                });
+
+                htmlFinal += `<button class="bot-menu-btn bot-menu-btn-voltar" onclick="document.getElementById('bot-search-container').style.display='block'; initKonectinho()">🔄 Voltar ao Menu Principal</button>`;
+
+                appendBotMessageHTML(htmlFinal, false);
+            }, 800); 
         }
     </script>
 </body>
